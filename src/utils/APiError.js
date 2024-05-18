@@ -3,7 +3,7 @@ class ApiError extends Error {
     statusCode,
     message = "Something want wrong",
     errors = [],
-    statck = "",
+    stack = "",
   ) {
     //constructor ke value ko overRide karna
     super(message);
@@ -13,7 +13,7 @@ class ApiError extends Error {
     this.success = false;
     this.errors = errors;
 
-    if (statck) {
+    if (stack) {
       this.stack = stack;
     } else {
       Error.captureStackTrace(this, this.contructor);
