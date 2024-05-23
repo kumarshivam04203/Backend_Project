@@ -1,30 +1,22 @@
 //dotenv ko require karne se code ke consestancy kharab hkarta hai
 // require ('dotenv').config({path: './env'})
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-
+import app from './app.js'
 
 dotenv.config({
-    path: './env'
-})
-
-
-
+  path: "./env",
+});
 
 connectDB()
-.then(() => {
+  .then(() => {
     app.listen(process.env.PORT || 8000, () => {
-        console.log(`Server is running at port :  ${process.env.PORT}`);
-    })
-})
-.catch((err) => {
-    console.log("mongo connection failed :", err)
-})
-
-
-
-
-
+      console.log(`Server is running at port :  ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("mongo connection failed :", err);
+  });
 
 // TODO : First db connect approach
 /*
